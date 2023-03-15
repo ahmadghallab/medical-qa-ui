@@ -22,7 +22,7 @@ const PageStaticHeader = ({
     >
       <Row>
         <Col flex='auto'>
-          <Typography.Title level={3} style={{ marginBottom: 0 }}>
+          <Typography.Title level={2} style={{ marginBottom: 0 }}>
             {title}
           </Typography.Title>
           <Typography.Text type='secondary' style={{ marginBottom: 0 }}>

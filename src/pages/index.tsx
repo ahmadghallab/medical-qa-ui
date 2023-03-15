@@ -1,4 +1,4 @@
-import PageStaticHeader from '../components/PageStaticHeader';
+import PageStaticHeader from 'components/PageStaticHeader';
 
 const Home = () => {
   return (
