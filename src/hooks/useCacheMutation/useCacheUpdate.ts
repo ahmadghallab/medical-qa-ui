@@ -1,7 +1,7 @@
 import { CacheKey } from 'models/Common';
 import { useSWRConfig } from 'swr';
 
-const defaultObj = { data: 'raw', count: 'count', key: '_id' }
+const defaultObj = { data: 'raw', count: 'count', key: 'id' }
 
 const useCacheUpdate = () => {
   const { mutate } = useSWRConfig();

@@ -5,7 +5,6 @@ import SuspenseFallback from './components/SuspenseFallback';
 import { ConfigProvider, theme } from 'antd';
 import { defaultToken } from 'utils/theme-tokens';
 
-const Home = lazy(() => import('pages'));
 const Branches = lazy(() => import('pages/branches'));
 const Topics = lazy(() => import('pages/topics'));
 const Titles = lazy(() => import('pages/titles'));
@@ -30,7 +29,7 @@ function App() {
         <MainLayout>
           <Suspense fallback={<SuspenseFallback />}>
             <Routes>
-              <Route path='/' element={<Home />} />
+              <Route path='/' element={<Branches />} />
               <Route path='/branches' element={<Branches />} />
               <Route path='/topics/branch/:branchId' element={<Topics />} />
               <Route path='/titles/topic/:topicId' element={<Titles />} />

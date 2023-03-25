@@ -1,19 +1,34 @@
-import { Button, List, Typography } from 'antd';
+import { Button, Card, Space, Typography } from 'antd';
+import Stack from 'components/Stack';
 import { QuestionModel } from 'models/Question';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import useQuestionsStore from 'store/questions';
 
 interface IProps {
   data: QuestionModel;
 }
 
 const QuestionCard: React.FC<IProps> = ({ data }) => {
+  const handleEdit = useQuestionsStore((state) => state.handleEditDialog);
+
+  const handleDelete = useQuestionsStore((state) => state.handleDeleteDialog);
+
   return (
-    <List.Item actions={[<Button>Edit</Button>]}>
-      <Typography.Title level={5} style={{ marginBottom: 0 }}>
-        <Link to={`/questions/title/${data.id}`}>{data.question}</Link>
-      </Typography.Title>
-    </List.Item>
+    <Card style={{ height: '100%' }}>
+      <Stack>
+        <Typography.Title style={{ marginBottom: 0 }} level={3}>
+          {data.question}
+        </Typography.Title>
+        <Space>
+          <Button type='text' onClick={() => handleEdit(data)}>
+            Edit
+          </Button>
+          <Button type='text' danger onClick={() => handleDelete(data)}>
+            Delete
+          </Button>
+        </Space>
+      </Stack>
+    </Card>
   );
 };
 

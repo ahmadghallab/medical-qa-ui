@@ -6,7 +6,7 @@ const useCacheDelete = () => {
 
   const paginatedCacheDelete = (cacheKey: CacheKey, id: number|string) => {
     mutate((key: CacheKey) => key['url'] === cacheKey.url, (cache: any) => {
-      const raw = cache.raw.filter((el: any) => el._id !== id);
+      const raw = cache.raw.filter((el: any) => el.id !== id);
 
       const count = cache.count - 1;
 

@@ -1,12 +1,17 @@
 import Error from 'components/Error';
 import useQuery from 'hooks/useQuery';
-import TitlesListBody from './QuestionsListBody';
+import AddQuestion from './AddQuestion';
+import DeleteQuestion from './DeleteQuestion';
+import EditQuestion from './EditQuestion';
+import QuestionsListBody from './QuestionsListBody';
+import QuestionsListHeader from './QuestionsListHeader';
 
 interface IProps {
   titleId: string;
+  titleName: string;
 }
 
-const Titles = ({ titleId }: IProps) => {
+const Titles = ({ titleId, titleName }: IProps) => {
   const cacheKey = {
     url: `/questions/title/${titleId}`,
   };
@@ -19,7 +24,12 @@ const Titles = ({ titleId }: IProps) => {
 
   return (
     <>
-      <TitlesListBody dataSource={data} />
+      <QuestionsListHeader />
+      <QuestionsListBody dataSource={data} />
+
+      <AddQuestion cacheKey={cacheKey} titleId={titleId} />
+      <EditQuestion cacheKey={cacheKey} />
+      <DeleteQuestion cacheKey={cacheKey} />
     </>
   );
 };

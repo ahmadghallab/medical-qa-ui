@@ -1,7 +1,11 @@
-import { FileTextTwoTone } from '@ant-design/icons';
-import { Row, Space, Typography } from 'antd';
+import { FileTextOutlined } from '@ant-design/icons';
+import { Row, Space, theme, Typography } from 'antd';
 
 const NoData = ({ name = 'data' }) => {
+  const {
+    token: { colorText },
+  } = theme.useToken();
+
   return (
     <Row
       align='middle'
@@ -10,8 +14,8 @@ const NoData = ({ name = 'data' }) => {
       className='fade-in-up'
     >
       <Space direction='vertical' align='center'>
-        <FileTextTwoTone style={{ fontSize: '3em' }} />
-        <Typography.Text type='secondary'>There are no {name}</Typography.Text>
+        <FileTextOutlined style={{ fontSize: '2em', color: colorText }} />
+        <Typography.Text>There are no {name}</Typography.Text>
       </Space>
     </Row>
   );

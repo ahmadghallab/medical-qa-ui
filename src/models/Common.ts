@@ -17,7 +17,7 @@ export interface CacheKey {
 }
 
 export interface ImageModel {
-  _id: string,
+  id: string,
   fileName: string,
   url: string
 }
