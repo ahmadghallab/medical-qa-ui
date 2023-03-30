@@ -8,10 +8,9 @@ import QuestionsListHeader from './QuestionsListHeader';
 
 interface IProps {
   titleId: string;
-  titleName: string;
 }
 
-const Titles = ({ titleId, titleName }: IProps) => {
+const Titles = ({ titleId }: IProps) => {
   const cacheKey = {
     url: `/questions/title/${titleId}`,
   };

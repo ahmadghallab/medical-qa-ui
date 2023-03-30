@@ -7,8 +7,8 @@ export interface Props {
 }
 
 export interface BreadcrumbItem {
-  label: string,
-  path?: string
+  title: ReactNode,
+  key: string
 }
 
 export interface CacheKey {
@@ -37,6 +37,15 @@ export interface IStatusDisplay {
   color: string;
   label: string;
   icon: ReactNode;
+}
+
+export interface IParams {
+  branchId?: string;
+  branchName?: string;
+  topicId?: string;
+  topicName?: string;
+  titleId?: string;
+  titleName?: string;
 }
 
 export type RequestMethods = "put" | "post" | "patch" | "delete" | "get";

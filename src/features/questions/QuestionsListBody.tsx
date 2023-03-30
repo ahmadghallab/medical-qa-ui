@@ -3,7 +3,11 @@ import NoData from 'components/NoData';
 import { QuestionModel } from 'models/Question';
 import QuestionCard from './QuestionCard';
 
-const QuestionsListBody = ({ dataSource }) => {
+interface IProps {
+  dataSource: { raw: QuestionModel[]; count: number };
+}
+
+const QuestionsListBody = ({ dataSource }: IProps) => {
   if (!dataSource) return <Skeleton />;
 
   if (dataSource.count === 0) return <NoData name='questions' />;

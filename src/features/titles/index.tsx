@@ -1,5 +1,6 @@
 import Error from 'components/Error';
 import useQuery from 'hooks/useQuery';
+import { IParams } from 'models/Common';
 import AddTitle from './AddTitle';
 import DeleteTitle from './DeleteTitle';
 import EditTitle from './EditTitle';
@@ -7,12 +8,12 @@ import TitlesListBody from './TitlesListBody';
 import TitlesListHeader from './TitlesListHeader';
 
 interface IProps {
-  topicId: string;
+  params: IParams;
 }
 
-const Titles = ({ topicId }: IProps) => {
+const Titles = ({ params }: IProps) => {
   const cacheKey = {
-    url: `/titles/topic/${topicId}`,
+    url: `/titles/topic/${params.topicId}`,
   };
 
   const { data, error } = useQuery({
@@ -24,9 +25,9 @@ const Titles = ({ topicId }: IProps) => {
   return (
     <>
       <TitlesListHeader />
-      <TitlesListBody dataSource={data} />
+      <TitlesListBody dataSource={data} params={params} />
 
-      <AddTitle cacheKey={cacheKey} topicId={topicId} />
+      <AddTitle cacheKey={cacheKey} topicId={params.topicId} />
       <EditTitle cacheKey={cacheKey} />
       <DeleteTitle cacheKey={cacheKey} />
     </>

@@ -3,7 +3,11 @@ import NoData from 'components/NoData';
 import { BranchModel } from 'models/Branch';
 import BranchCard from './BranchCard';
 
-const BranchesListBody = ({ dataSource }) => {
+interface IProps {
+  dataSource: { raw: BranchModel[]; count: number };
+}
+
+const BranchesListBody = ({ dataSource }: IProps) => {
   if (!dataSource) return <Skeleton />;
 
   if (dataSource.count === 0) return <NoData name='branches' />;
