@@ -31,23 +31,35 @@ const QuestionForm: React.FC<Props> = ({
       layout='vertical'
       form={form}
     >
-      <div style={{ maxWidth: 500, margin: '30px auto 50px' }}>
+      <div style={{ maxWidth: 900, margin: '30px auto 50px' }}>
         <Form.Item
           label='Question'
           name='question'
           rules={[{ required: true, message: 'Please input question' }]}
         >
-          <Input.TextArea rows={3} placeholder='Input question' size='large' />
+          <Input.TextArea
+            autoSize={{ minRows: 7 }}
+            placeholder='Input question'
+            size='large'
+          />
         </Form.Item>
         <Form.Item
           label='Answer'
           name='answer'
           rules={[{ required: true, message: 'Please input answer' }]}
         >
-          <Input.TextArea rows={3} placeholder='Input answer' size='large' />
+          <Input.TextArea
+            autoSize={{ minRows: 3 }}
+            placeholder='Input answer'
+            size='large'
+          />
         </Form.Item>
         <Form.Item label='Reference' name='reference'>
-          <Input.TextArea rows={2} placeholder='Input reference' size='large' />
+          <Input.TextArea
+            autoSize={{ minRows: 2 }}
+            placeholder='Input reference'
+            size='large'
+          />
         </Form.Item>
       </div>
       <Row justify='end'>

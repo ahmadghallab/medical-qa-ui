@@ -33,6 +33,7 @@ const EditQuestion: React.FC<{ cacheKey: CacheKey }> = ({ cacheKey }) => {
       open={open}
       title='Edit question'
       onCancel={() => handleCancel(null)}
+      width={1000}
     >
       {open && (
         <QuestionForm

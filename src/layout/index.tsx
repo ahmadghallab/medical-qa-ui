@@ -7,7 +7,7 @@ interface IProps {
 
 const MainLayout: React.FC<IProps> = ({ children }) => {
   return (
-    <Layout style={{ height: '100vh' }}>
+    <Layout style={{ minHeight: '100vh' }}>
       <Layout.Content>
         <div
           style={{ maxWidth: 1050, margin: '50px auto' }}

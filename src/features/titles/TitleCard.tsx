@@ -19,7 +19,7 @@ const TitleCard: React.FC<IProps> = ({ data, params }) => {
   return (
     <Card style={{ height: '100%' }}>
       <Stack>
-        <Typography.Title style={{ marginBottom: 0 }} level={3}>
+        <Typography.Title style={{ marginBottom: 0 }} level={3} ellipsis={true}>
           <Link
             to={`/questions/title/${data.id}?title-name=${data.name}&topic-id=${params.topicId}&topic-name=${params.topicName}&branch-id=${params.branchId}&branch-name=${params.branchName}`}
           >

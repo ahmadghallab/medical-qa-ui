@@ -1,5 +1,7 @@
 import Error from 'components/Error';
+import Paginator from 'components/Paginator';
 import useQuery from 'hooks/useQuery';
+import { useState } from 'react';
 import AddQuestion from './AddQuestion';
 import DeleteQuestion from './DeleteQuestion';
 import EditQuestion from './EditQuestion';
@@ -11,8 +13,14 @@ interface IProps {
 }
 
 const Titles = ({ titleId }: IProps) => {
+  const [pageNo, setPageNo] = useState(1);
+
+  const handlePageChange = (value: number) => {
+    setPageNo(value);
+  };
+
   const cacheKey = {
-    url: `/questions/title/${titleId}`,
+    url: `/questions/title/${titleId}?page=${pageNo}`,
   };
 
   const { data, error } = useQuery({
@@ -25,6 +33,12 @@ const Titles = ({ titleId }: IProps) => {
     <>
       <QuestionsListHeader />
       <QuestionsListBody dataSource={data} />
+
+      <Paginator
+        dataSource={data}
+        page={pageNo}
+        handlePageChange={handlePageChange}
+      />
 
       <AddQuestion cacheKey={cacheKey} titleId={titleId} />
       <EditQuestion cacheKey={cacheKey} />

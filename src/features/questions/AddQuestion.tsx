@@ -39,6 +39,7 @@ const AddQuestion: React.FC<IProps> = ({ cacheKey, titleId }) => {
       open={open}
       title='Add question'
       onCancel={() => handleCancel()}
+      width={1000}
     >
       <QuestionForm
         handleSubmit={handleSubmit}

@@ -16,12 +16,12 @@ const QuestionCard: React.FC<IProps> = ({ data }) => {
   return (
     <Card style={{ height: '100%' }}>
       <Stack>
-        <Typography.Title style={{ marginBottom: 0 }} level={3}>
+        <Typography.Title style={{ marginBottom: 0 }} level={3} ellipsis={true}>
           {data.question}
         </Typography.Title>
         <Space>
           <Button type='text' onClick={() => handleEdit(data)}>
-            Edit
+            View/Edit
           </Button>
           <Button type='text' danger onClick={() => handleDelete(data)}>
             Delete

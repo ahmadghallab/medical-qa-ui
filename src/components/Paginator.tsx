@@ -1,38 +1,47 @@
 import React from 'react';
-import { Pagination, Row, Skeleton } from 'antd';
+import { Button, Pagination, PaginationProps, Row, Skeleton } from 'antd';
 
 interface Props {
   dataSource: any;
   page: number;
   handlePageChange: (number: number) => void;
-  size?: number;
-  countFieldName?: string;
 }
 
-const Paginator: React.FC<Props> = ({
-  dataSource,
-  page,
-  handlePageChange,
-  size = 10,
-  countFieldName = 'count',
-}) => {
+const itemRender: PaginationProps['itemRender'] = (
+  _,
+  type,
+  originalElement
+) => {
+  if (type === 'prev') {
+    return <Button ghost>Prev</Button>;
+  }
+  if (type === 'next') {
+    return <Button ghost>Next</Button>;
+  }
+  return originalElement;
+};
+
+const Paginator: React.FC<Props> = ({ dataSource, page, handlePageChange }) => {
   if (!dataSource)
     return (
-      <Row justify='end'>
-        <Skeleton.Input size='small' />
+      <Row justify='start' style={{ marginTop: 35 }}>
+        <Skeleton.Input size='small' />;
       </Row>
     );
 
-  if (dataSource[countFieldName] === 0) return null;
+  if (dataSource.count === 0) return null;
 
   return (
-    <Row justify='end'>
+    <Row justify='start' style={{ marginTop: 35 }}>
       <Pagination
         onChange={handlePageChange}
         current={page}
-        total={dataSource[countFieldName]}
+        total={dataSource.count}
         showSizeChanger={false}
-        defaultPageSize={size}
+        defaultPageSize={25}
+        style={{ fontWeight: 500 }}
+        itemRender={itemRender}
+        showLessItems={true}
       />
     </Row>
   );

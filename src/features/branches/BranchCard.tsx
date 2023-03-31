@@ -17,7 +17,7 @@ const BranchCard: React.FC<IProps> = ({ data }) => {
   return (
     <Card style={{ height: '100%' }}>
       <Stack>
-        <Typography.Title style={{ marginBottom: 0 }} level={3}>
+        <Typography.Title style={{ marginBottom: 0 }} level={3} ellipsis={true}>
           <Link to={`/topics/branch/${data.id}?branch-name=${data.name}`}>
             {data.name}
           </Link>
