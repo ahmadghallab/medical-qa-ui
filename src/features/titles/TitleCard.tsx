@@ -1,4 +1,4 @@
-import { Button, Card, Space, Typography } from 'antd';
+import { Button, Card, Space, Typography, theme } from 'antd';
 import Stack from 'components/Stack';
 import { IParams } from 'models/Common';
 import { TitleModel } from 'models/Title';
@@ -12,12 +12,13 @@ interface IProps {
 }
 
 const TitleCard: React.FC<IProps> = ({ data, params }) => {
+  const { token } = theme.useToken();
   const handleEdit = useTitlesStore((state) => state.handleEditDialog);
 
   const handleDelete = useTitlesStore((state) => state.handleDeleteDialog);
 
   return (
-    <Card style={{ height: '100%' }}>
+    <Card bordered={true} style={{ borderColor: token.colorBorder }}>
       <Stack>
         <Typography.Title style={{ marginBottom: 0 }} level={3} ellipsis={true}>
           <Link
